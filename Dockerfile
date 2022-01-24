@@ -7,7 +7,7 @@
 # 
 #     https://github.com/kaczmarj/neurodocker
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
@@ -120,7 +120,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends software-proper
 
 #Simnibs Setup
 ARG RELEASE="latest"
-RUN pip install -f https://github.com/simnibs/simnibs/releases/${RELEASE} simnibs 
+RUN pip install -f https://github.com/simnibs/simnibs/releases/${RELEASE} fmm3dpy requests simnibs
 RUN mkdir -p /simnibs \
 	&& postinstall_simnibs -d "/simnibs" --setup-links --silent --force
 
